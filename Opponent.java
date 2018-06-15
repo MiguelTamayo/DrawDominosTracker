@@ -21,7 +21,7 @@ public class Opponent {
         return dominoArrayList;
     }
 
-    public void printDominos(ArrayList<Domino> dominoArrayList){
+    public void printDominos(){
         int counter =0;
         //cycle through all 7 rows
         for (int i =0;i<7;i++){
