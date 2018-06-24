@@ -1,0 +1,34 @@
+body{
+	background-color: #222222;
+}
+a:link{
+	text-decoration: none;
+}
+h2{
+	color: #ffffff;
+	white-space: pre-wrap;
+}
+
+.opponent{
+	background-color: black;
+}
+
+.domcont{
+	position: initial;
+	padding: 2px;
+}
+
+.domino{
+	cursor: pointer;
+	background: #ffffff;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 5px;
+	width: 80px;
+}
+
+.selected{
+	background: transparent;
+	height: 45px;
+	width: 80px;
+}
