@@ -8,13 +8,13 @@ Knowing which tiles your opponent has and doesn't have helps when choosing the o
 
 With this application you will be able to visually see which pieces your opponents plausibly have by easily adding which pieces have been played and which one you have.
 
-##Assumptions of the application:
+## Assumptions of the application:
 -Dominos used are a double-six set total of 28 tiles
 -Each player gets only 7 tiles
 -Players do not pass their turn if there are still tiles in the draw pile or if they have a tile that can be played
 -no cheating(trading tiles, hiding tiles, duplicate tiles...etc)
 
-##How to use:
+## How to use:
 Download repository and open the index.html file within the web files folder
 at first you should be presented the prompt to select the number of players including yourself
 after your choice you should see the the amount of opponents each with their own stack of dominoes
