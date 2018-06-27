@@ -1,44 +1,74 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content=""
     <title>title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link href="./css/Dominoes.css" rel="stylesheet">
   </head>
-  <body ng-app="test" ng-controller="cont">
+  <body ng-app="test" ng-controller="cont" ng-cloak>
   	<!--Number Of Players-->
-  	<div class="container card card-block bg-dark">
+  	<div class="container card card-block bg-dark" ng-init="np=true"ng-show="np">
   		<div class="row">
   			<h2>Select the number of players:</h2>
   		</div>
   		<div class="row">
   			<div class="col-sm-11">
-  				<select class="form-control" ng-model="number.value" ng-options="number as number.label for number in playerNumbers"></select>
+  				 <select class="form-control" ng-model='form.type' required ng-options='option.value as option.name for option in typeOptions'></select>
   			</div>
   			<div class="col-sm-1 btn-group">
-  				<button class="btn btn-block" type="button" ng-click="TestClick(number)">hide</button>
+  				<button class="btn btn-block" type="button" ng-click="createPlayers(form.type);np=false">select</button>
   			</div>
   		</div>
   	</div>
   	<!--/Number Of Players-->
 
-  	<!-- Opponent -->
-  	<div class="container opponent card card-block bg-dark" ng-init="show=true">
+  	<!-- Opponents -->
+  	<div class="container opponent" ng-repeat="player in players.slice(1)">
   		<div class="row">
-  			<h2>Player:</h2>
+  			<h2 ng-cloak>{{player.name}} </h2>
   		</div>
-  			<div class="row" ng-repeat="row in dominoRows">
+      <div class="row">
+        <div class="col-sm-10">
+           <select class="form-control" ng-model='domSkip.type' required ng-options='ds.value as ds.name for ds in domNum'></select>
+        </div>
+        <div class="col-sm-2 btn-group">
+          <button class="btn btn-block" type="button" ng-click="remDomByVal(domSkip.type,player.dominoes);np=false">remove all</button>
+        </div>
+      </div>
+  			<div class="row" ng-repeat="row in player.dominoes">
 	  			<div class="col-xs-1" ng-repeat="domino in row.dominoes track by $index">
 	  				<div class="domcont">
-	  					<div ng-click="class='selected';show=false" ng-class="class">
-	  						<h3 class="text-center align-middle" ng-show="show||reset">{{domino.textValue}}</h3>
+	  					<div ng-click="domino.class='selected';printDom(domino,players)" ng-class="domino.class">
+	  						<h3 class="text-center align-middle" ng-show="domino.visible" ng-cloak>{{domino.textValue}}</h3>
 	  					</div>
 	  				</div>
 	  			</div>
   			</div>
   	</div>
   	<!--/Opponent -->
+
+  	<!-- Opponents -->
+  	<div class="container opponent" ng-show="!np">
+  		<div class="row">
+  			<h2 ng-cloak>{{ players[0].name }}</h2>
+  		</div>
+  			<div class="row" ng-repeat="row in players[0].dominoes">
+	  			<div class="col-xs-1" ng-repeat="domino in row.dominoes track by $index">
+	  				<div class="domcont">
+	  					<div ng-click="globalDomRemove(players,domino)" class="domino">
+	  						<h3 class="text-center align-middle" ng-show="domino.visible" ng-cloak>{{domino.textValue}}</h3>
+	  					</div>
+	  				</div>
+	  			</div>
+  			</div>
+  	</div>
+  	<!--/Opponent -->
+
   </body>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular.min.js"></script>
 

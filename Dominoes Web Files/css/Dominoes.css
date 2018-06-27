@@ -7,28 +7,37 @@ a:link{
 h2{
 	color: #ffffff;
 	white-space: pre-wrap;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+[ng-click]{
+    cursor: pointer;
 }
 
 .opponent{
-	background-color: black;
+	background-color: gray;
 }
 
 .domcont{
 	position: initial;
 	padding: 2px;
 }
-
 .domino{
-	cursor: pointer;
 	background: #ffffff;
 	border-style: solid;
+	border-color: black;
 	border-width: 2px;
 	border-radius: 5px;
 	width: 80px;
 }
 
 .selected{
-	background: transparent;
+	cursor: default;
 	height: 45px;
 	width: 80px;
 }
