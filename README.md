@@ -10,8 +10,11 @@ With this application you will be able to visually see which pieces your opponen
 
 ## Assumptions of the application:
 -Dominos used are a double-six set total of 28 tiles
+
 -Each player gets only 7 tiles
+
 -Players do not pass their turn if there are still tiles in the draw pile or if they have a tile that can be played
+
 -no cheating(trading tiles, hiding tiles, duplicate tiles...etc)
 
 ## How to use:
