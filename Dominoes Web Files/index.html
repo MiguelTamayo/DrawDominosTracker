@@ -11,27 +11,27 @@
     <link href="./css/Dominoes.css" rel="stylesheet">
   </head>
   <body ng-app="test" ng-controller="cont" ng-cloak>
-  	<!--Number Of Players-->
-  	<div class="container card card-block bg-dark" ng-init="np=true"ng-show="np">
-  		<div class="row">
-  			<h2>Select the number of players:</h2>
-  		</div>
-  		<div class="row">
-  			<div class="col-sm-11">
-  				 <select class="form-control" ng-model='form.type' required ng-options='option.value as option.name for option in typeOptions'></select>
-  			</div>
-  			<div class="col-sm-1 btn-group">
-  				<button class="btn btn-block" type="button" ng-click="createPlayers(form.type);np=false">select</button>
-  			</div>
-  		</div>
-  	</div>
-  	<!--/Number Of Players-->
+    <!--Number Of Players-->
+    <div class="container card card-block bg-dark" ng-init="np=true"ng-show="np">
+      <div class="row">
+        <h2>Select the number of players:</h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-11">
+           <select class="form-control" ng-model='form.type' required ng-options='option.value as option.name for option in typeOptions'></select>
+        </div>
+        <div class="col-sm-1 btn-group">
+          <button class="btn btn-block" type="button" ng-click="createPlayers(form.type);np=false">select</button>
+        </div>
+      </div>
+    </div>
+    <!--/Number Of Players-->
 
-  	<!-- Opponents -->
-  	<div class="container opponent" ng-repeat="player in players.slice(1)">
-  		<div class="row">
-  			<h2 ng-cloak>{{player.name}} </h2>
-  		</div>
+    <!-- Opponents -->
+    <div class="container opponent" ng-repeat="player in players.slice(1)">
+      <div class="row">
+        <h2 ng-cloak>{{player.name}} </h2>
+      </div>
       <div class="row">
         <div class="col-sm-10">
            <select class="form-control" ng-model='domSkip.type' required ng-options='ds.value as ds.name for ds in domNum'></select>
@@ -40,34 +40,35 @@
           <button class="btn btn-block" type="button" ng-click="remDomByVal(domSkip.type,player.dominoes);np=false">remove all</button>
         </div>
       </div>
-  			<div class="row" ng-repeat="row in player.dominoes">
-	  			<div class="col-xs-1" ng-repeat="domino in row.dominoes track by $index">
-	  				<div class="domcont">
-	  					<div ng-click="domino.class='selected';printDom(domino,players)" ng-class="domino.class">
-	  						<h3 class="text-center align-middle" ng-show="domino.visible" ng-cloak>{{domino.textValue}}</h3>
-	  					</div>
-	  				</div>
-	  			</div>
-  			</div>
-  	</div>
-  	<!--/Opponent -->
+        <div class="row" ng-repeat="row in player.dominoes">
+          <div class="col-xs-1" ng-repeat="domino in row.dominoes track by $index">
+            <div class="domcont">
+              <div ng-click="domino.class='selected';printDom(domino,players)" ng-class="domino.class">
+                <h3 class="text-center align-middle" ng-show="domino.visible" ng-cloak>{{domino.textValue}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!--/Opponent -->
 
-  	<!-- Opponents -->
-  	<div class="container opponent" ng-show="!np">
-  		<div class="row">
-  			<h2 ng-cloak>{{ players[0].name }}</h2>
-  		</div>
-  			<div class="row" ng-repeat="row in players[0].dominoes">
-	  			<div class="col-xs-1" ng-repeat="domino in row.dominoes track by $index">
-	  				<div class="domcont">
-	  					<div ng-click="globalDomRemove(players,domino)" class="domino">
-	  						<h3 class="text-center align-middle" ng-show="domino.visible" ng-cloak>{{domino.textValue}}</h3>
-	  					</div>
-	  				</div>
-	  			</div>
-  			</div>
-  	</div>
-  	<!--/Opponent -->
+    <!-- Opponents -->
+    <div class="container opponent" ng-show="!np">
+      <div class="row">
+        <h2 ng-cloak>{{ players[0].name }}</h2>
+      </div>
+
+      <div class="row" ng-repeat="row in players[0].dominoes">
+          <div class="col-xs-1" ng-repeat="domino in row.dominoes track by $index">
+            <div class="domcont">
+              <div ng-click="domino.class='selected';globalDomRemove(players,domino);printDom(domino,players)" ng-class="domino.class">
+                <h3 class="text-center align-middle" ng-show="domino.visible" ng-cloak>{{domino.textValue}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!--/Opponent -->
 
   </body>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular.min.js"></script>
