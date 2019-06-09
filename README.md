@@ -24,4 +24,4 @@ after your choice you should see the the amount of opponents each with their own
 
 by clicking a domino in the opponent's section you remove it for only that individual. when you click a domino in the global dominoes section you remove that domino for all your opponents.
 
-each opponent has a drop down menu with numbers 0-6 and a button with the prompt 'remove all'. you can remove all dominoes that have the selected value from the drop down menu for that opponent. this comes in handy when for example, an opponent skips you know the dont have any tiles with the values that are on either end of the gameboard.
+each opponent has a drop down menu with numbers 0-6 and a button with the prompt 'remove all'. you can remove all dominoes that have the selected value from the drop down menu for that opponent. this comes in handy when for example, an opponent skips, you now know they dont have any tiles with the values that are on either end of the gameboard.
